@@ -39,8 +39,9 @@ void main() {
   /* Other Variable Declarations Go Here */
   unsigned char testB[SIZE];
   /* Statistics and Printing Functions Go Here */
+  printf("test");
   print_array(test, SIZE);
-  copy_array(test, SIZE, testB);
+  printf("test");
   print_array(testB, SIZE);
   /* testing functions*/
   //printf("test\n");
@@ -57,7 +58,7 @@ void print_statistics(char * ptr, int count)
 void print_array(unsigned char * ptr, int count)
 {
   int i;
-  printf("test[");
+  printf("[");
   for(i=0; i<count; i++){
     printf("%d", *ptr);
     if(i < count-1){printf(", ");}
@@ -85,19 +86,19 @@ int find_minimum(unsigned char * ptr, int count)
 {
   return 0;
 }
-/*
-unsigned char sort_array(unsigned char * ptrA, int count)
+
+void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB)
 {
-  unsigned char scratch[count];
-  unsigned char * ptrB = &scratch;
+  //unsigned char scratch[count];
+  //unsigned char * ptrB = &scratch;
 
-  copy_array(ptrA, 0, count, ptrB);
-  split(ptrB, 0, n, ptrA);
+  copy_array(ptrA, count, ptrB);
+  split(ptrB, 0, count, ptrA);
 
-  return scratch;
+  //return scratch;
 
 }
-*/
+
 void copy_array(unsigned char * ptrA, int count, unsigned char * ptrB)
 {
   int i;
@@ -108,7 +109,7 @@ void copy_array(unsigned char * ptrA, int count, unsigned char * ptrB)
     ptrB++;
   }
 }
-/*
+
 void split(unsigned char * ptrB, int istart, int iend, unsigned char * ptrA)
 {
   int imiddle;
@@ -124,7 +125,7 @@ void split(unsigned char * ptrB, int istart, int iend, unsigned char * ptrA)
   
 }
 
-void merge(unsigned char * ptrA, istart, imiddle, iend, unsigned char * ptrB)
+void merge(unsigned char * ptrA, int istart, int imiddle, int iend, unsigned char * ptrB)
 {
 
   unsigned char * ptr_k;
@@ -153,7 +154,7 @@ void merge(unsigned char * ptrA, istart, imiddle, iend, unsigned char * ptrB)
     }
   }
 }
-*/
+
 
 
 /*************** PSEUDOCODE *************/
