@@ -16,7 +16,7 @@
  * Sorts dataset from smallest to largest value
  * 
  * @author Aaron Lal
- * @date Editted 25/04/2018
+ * @date Editted 12/05/2018
  *
  */
 
@@ -38,10 +38,9 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
-  
-  /* testing functions*/
-  printf("test\n");
   print_array(test, SIZE);
+  /* testing functions*/
+  //printf("test\n");
 
 }
 
@@ -55,12 +54,13 @@ void print_statistics(char * ptr, int count)
 void print_array(unsigned char * ptr, int count)
 {
   int i;
-
+  printf("test[");
   for(i=0; i<count; i++){
-    printf("%d\n", *ptr);
-    //printf(*ptr);
+    printf("%d", *ptr);
+    if(i < count-1){printf(", ");}
     ptr++;
   }
+  printf("]\n");
 }
 
 int find_median(char * ptr, int count)

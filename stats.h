@@ -24,7 +24,19 @@
 /* Add Your Declarations and Function Comments here */
 
 void print_statistics(char * ptr, int count);
+
 void print_array(unsigned char * ptr, int count);
+/**
+ * @brief print_array prints all elements of the array to terminal
+ *
+ * The array is printed as the array name followed by comma separated varialbles inside square brackets
+ *
+ * @param * ptr <add description here>
+ * @param count is an integer variable for number of array elements
+ *
+ * @return No return variables
+ */
+
 int find_median(char * ptr, int count);
 int find_mean(char * ptr, int count);
 int find_maximum(char * ptr, int count);
