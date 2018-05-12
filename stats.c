@@ -37,12 +37,13 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  unsigned char testB[SIZE];
+  unsigned char sorted[SIZE];
   /* Statistics and Printing Functions Go Here */
+  sort_array(test, SIZE, sorted);
   printf("test");
   print_array(test, SIZE);
-  printf("test");
-  print_array(testB, SIZE);
+  printf("sorted");
+  print_array(sorted, SIZE);
   /* testing functions*/
   //printf("test\n");
 
@@ -93,7 +94,7 @@ void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB)
   //unsigned char * ptrB = &scratch;
 
   copy_array(ptrA, count, ptrB);
-  split(ptrB, 0, count, ptrA);
+  split(ptrA, 0, count, ptrB);
 
   //return scratch;
 
