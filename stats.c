@@ -56,7 +56,7 @@ void print_array(char * ptr, int count)
 {
   int i;
 
-  for(i=0, i<40, i++){
+  for(i=0; i<40; i++){
     printf("%c\n", *ptr);
     ptr++;
   }
