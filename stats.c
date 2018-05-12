@@ -41,7 +41,7 @@ void main() {
   
   /* testing functions*/
   printf("test\n");
-  //print_array(&test, SIZE);
+  print_array(test, SIZE);
 
 }
 
@@ -52,12 +52,13 @@ void print_statistics(char * ptr, int count)
   
 }
 
-void print_array(char * ptr, int count)
+void print_array(unsigned char * ptr, int count)
 {
   int i;
 
-  for(i=0; i<40; i++){
-    printf("%c\n", *ptr);
+  for(i=0; i<count; i++){
+    printf("%d\n", *ptr);
+    //printf(*ptr);
     ptr++;
   }
 }
