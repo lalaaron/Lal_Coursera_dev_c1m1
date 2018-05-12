@@ -22,6 +22,7 @@
 #define __STATS_H__
 
 /* Add Your Declarations and Function Comments here */
+
 void print_statistics(char * ptr, int count);
 void print_array(char * ptr, int count);
 int find_median(char * ptr, int count);

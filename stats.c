@@ -9,13 +9,14 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file <stats.c> 
+ * @brief <Analysis of basic stats on an array of values>
  *
- * <Add Extended Description Here>
- *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * Prints an data set with its median, mean maximum and minimum values.
+ * Sorts dataset from smallest to largest value
+ * 
+ * @author Aaron Lal
+ * @date Editted 25/04/2018
  *
  */
 
@@ -37,7 +38,51 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   /* Statistics and Printing Functions Go Here */
+  
+  /* testing functions*/
+  printf("test\n");
+  //print_array(&test, SIZE);
 
 }
 
 /* Add other Implementation File Code Here */
+
+void print_statistics(char * ptr, int count)
+{
+  
+}
+
+void print_array(char * ptr, int count)
+{
+  int i;
+
+  for(i=0, i<40, i++){
+    printf("%c\n", *ptr);
+    ptr++;
+  }
+}
+
+int find_median(char * ptr, int count)
+{
+  return 0;
+}
+
+int find_mean(char * ptr, int count)
+{
+  return 0;
+}
+
+int find_maximum(char * ptr, int count)
+{
+  return 0;
+}
+
+int find_minimum(char * ptr, int count)
+{
+  return 0;
+}
+
+void sort_array(char * ptr, int count)
+{
+
+}
