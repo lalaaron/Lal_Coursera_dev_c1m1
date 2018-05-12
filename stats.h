@@ -25,7 +25,6 @@
 
 void print_statistics(char * ptr, int count);
 
-void print_array(unsigned char * ptr, int count);
 /**
  * @brief print_array prints all elements of the array to terminal
  *
@@ -36,12 +35,19 @@ void print_array(unsigned char * ptr, int count);
  *
  * @return No return variables
  */
+void print_array(unsigned char * ptr, int count);
 
-int find_median(char * ptr, int count);
-int find_mean(char * ptr, int count);
-int find_maximum(char * ptr, int count);
-int find_minimum(char * ptr, int count);
-void sort_array(char * ptr, int count);
+int find_median(unsigned char * ptr, int count);
+int find_mean(unsigned char * ptr, int count);
+int find_maximum(unsigned char * ptr, int count);
+int find_minimum(unsigned char * ptr, int count);
+
+//unsigned char sort_array(unsigned char * ptrA, int count);
+void copy_array(unsigned char * ptrA, int count, unsigned char * ptrB);
+//void split(unsigned char * ptrB, int istart, int iend, unsigned char * ptrA);
+//void merge(unsigned char * ptrA, istart, imiddle, iend, unsigned char * ptrB);
+
+
 
 /**
  * @brief <Add Brief Description of Function Here>

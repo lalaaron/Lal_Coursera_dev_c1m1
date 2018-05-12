@@ -37,8 +37,11 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
+  unsigned char testB[SIZE];
   /* Statistics and Printing Functions Go Here */
   print_array(test, SIZE);
+  copy_array(test, SIZE, testB);
+  print_array(testB, SIZE);
   /* testing functions*/
   //printf("test\n");
 
@@ -63,27 +66,143 @@ void print_array(unsigned char * ptr, int count)
   printf("]\n");
 }
 
-int find_median(char * ptr, int count)
+int find_median(unsigned char * ptr, int count)
 {
   return 0;
 }
 
-int find_mean(char * ptr, int count)
+int find_mean(unsigned char * ptr, int count)
 {
   return 0;
 }
 
-int find_maximum(char * ptr, int count)
+int find_maximum(unsigned char * ptr, int count)
 {
   return 0;
 }
 
-int find_minimum(char * ptr, int count)
+int find_minimum(unsigned char * ptr, int count)
 {
   return 0;
 }
-
-void sort_array(char * ptr, int count)
+/*
+unsigned char sort_array(unsigned char * ptrA, int count)
 {
+  unsigned char scratch[count];
+  unsigned char * ptrB = &scratch;
+
+  copy_array(ptrA, 0, count, ptrB);
+  split(ptrB, 0, n, ptrA);
+
+  return scratch;
 
 }
+*/
+void copy_array(unsigned char * ptrA, int count, unsigned char * ptrB)
+{
+  int i;
+  for(i = 0; i < count; i++)
+  {
+    *ptrB = *ptrA;
+    ptrA++;
+    ptrB++;
+  }
+}
+/*
+void split(unsigned char * ptrB, int istart, int iend, unsigned char * ptrA)
+{
+  int imiddle;
+  
+  if(iend - istart < 2){return;}
+  
+  imiddle = (iend + istart) / 2;
+  
+  split(ptrA, istart, imiddle, ptrB);
+  split(ptrA, imiddle, iend, ptrB);
+
+  merge(ptrB, istart, imiddle, iend, ptrA);
+  
+}
+
+void merge(unsigned char * ptrA, istart, imiddle, iend, unsigned char * ptrB)
+{
+
+  unsigned char * ptr_k;
+  unsigned char * ptr_i;
+  unsigned char * ptr_j;
+  int i = istart;
+  int j = imiddle;
+  int k;
+ 
+  // While there are elements in the left or right runs...
+  for (k = istart; k < iend; k++)
+  {
+    ptr_i = ptrA + i;
+    ptr_j = ptrA + j;
+    ptr_k = ptrB + k;
+    // If left run head exists and is <= existing right run head.
+    if (i < imiddle && (j >= iend || *ptr_i <= *ptr_j))
+    {
+      *ptr_k = *ptr_i;
+      i = i + 1;
+    }
+    else 
+    {
+      *ptr_k = *ptr_j;
+      j = j + 1;
+    }
+  }
+}
+*/
+
+
+/*************** PSEUDOCODE *************/
+/*
+// Array A[] has the items to sort; array B[] is a work array.
+TopDownMergeSort(A[], B[], n)
+{
+    CopyArray(A, 0, n, B);           // duplicate array A[] into B[]
+    TopDownSplitMerge(B, 0, n, A);   // sort data from B[] into A[]
+}
+
+// Sort the given run of array A[] using array B[] as a source.
+// iBegin is inclusive; iEnd is exclusive (A[iEnd] is not in the set).
+TopDownSplitMerge(B[], iBegin, iEnd, A[])
+{
+    if(iEnd - iBegin < 2)                       // if run size == 1
+        return;                                 //   consider it sorted
+    // split the run longer than 1 item into halves
+    iMiddle = (iEnd + iBegin) / 2;              // iMiddle = mid point
+    // recursively sort both runs from array A[] into B[]
+    TopDownSplitMerge(A, iBegin,  iMiddle, B);  // sort the left  run
+    TopDownSplitMerge(A, iMiddle,    iEnd, B);  // sort the right run
+    // merge the resulting runs from array B[] into A[]
+    TopDownMerge(B, iBegin, iMiddle, iEnd, A);
+}
+
+//  Left source half is A[ iBegin:iMiddle-1].
+// Right source half is A[iMiddle:iEnd-1   ].
+// Result is            B[ iBegin:iEnd-1   ].
+TopDownMerge(A[], iBegin, iMiddle, iEnd, B[])
+{
+    i = iBegin, j = iMiddle;
+ 
+    // While there are elements in the left or right runs...
+    for (k = iBegin; k < iEnd; k++) {
+        // If left run head exists and is <= existing right run head.
+        if (i < iMiddle && (j >= iEnd || A[i] <= A[j])) {
+            B[k] = A[i];
+            i = i + 1;
+        } else {
+            B[k] = A[j];
+            j = j + 1;
+        }
+    }
+}
+
+CopyArray(A[], iBegin, iEnd, B[])
+{
+    for(k = iBegin; k < iEnd; k++)
+        B[k] = A[k];
+}
+*/
