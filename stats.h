@@ -46,8 +46,6 @@ void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB);
 void copy_array(unsigned char * ptrA, int count, unsigned char * ptrB);
 void split(unsigned char * ptrB, int istart, int iend, unsigned char * ptrA);
 void merge(unsigned char * ptrA, int istart, int imiddle, int iend, unsigned char * ptrB);
-void reverse(unsigned char * ptrA, int count);
-
 
 /**
  * @brief <Add Brief Description of Function Here>

@@ -116,26 +116,44 @@ float find_median(unsigned char * ptr, int count)
 float find_mean(unsigned char * ptr, int count)
 {
   float total;
-  //float mean;
   int i;
   for(i = 0; i < count; i++)
   {
     total += *ptr;
     ptr++;
   }
-  //mean = total/count;
   return total/count;
 }
 
 int find_maximum(unsigned char * ptr, int count)
 {
-  ptr = ptr + count - 1;
-  return *ptr;
+  /* Max from unsorted array */
+  int max = *ptr;
+  int i;
+  for(i = 0; i < count; i++)
+  {
+    if(*ptr > max){max = *ptr;}
+    ptr++;
+  }
+  return max;
+  /* Max from sorted array */
+  /*ptr = ptr + count - 1;
+  return *ptr;*/
 }
 
 int find_minimum(unsigned char * ptr, int count)
 {
-  return *ptr;
+  /* Max from unsorted array */
+  int min = *ptr;
+  int i;
+  for(i = 0; i < count; i++)
+  {
+    if(*ptr < min){min = *ptr;}
+    ptr++;
+  }
+  return min;
+  /* Min from sorted array */
+  /*return *ptr;*/
 }
 
 void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB)
@@ -171,7 +189,6 @@ void split(unsigned char * ptrB, int istart, int iend, unsigned char * ptrA)
   split(ptrA, imiddle, iend, ptrB);
 
   merge(ptrB, istart, imiddle, iend, ptrA);
-  //reverse(ptrB, iend);
   
 }
 
@@ -191,8 +208,8 @@ void merge(unsigned char * ptrA, int istart, int imiddle, int iend, unsigned cha
     ptr_i = ptrA + i;
     ptr_j = ptrA + j;
     ptr_k = ptrB + k;
-    // If left run head exists and is <= existing right run head.
-    if (i < imiddle && (j >= iend || *ptr_i <= *ptr_j))
+    // If left run head exists and is >= existing right run head.
+    if (i < imiddle && (j >= iend || *ptr_i >= *ptr_j))
     {
       *ptr_k = *ptr_i;
       i = i + 1;
@@ -204,24 +221,6 @@ void merge(unsigned char * ptrA, int istart, int imiddle, int iend, unsigned cha
     }
   }
 }
-
-void reverse(unsigned char * ptrA, int count)
-{
-  unsigned char swap[count];
-  unsigned char * ptrC;
-  int i;
-  
-  copy_array(ptrA, count, ptrC);
-  ptrC = ptrC + count - 1;
-  for(i = 0; i < count; i++)
-  {
-    *ptrA = *ptrC;
-    ptrA++;
-    ptrC--;
-  }
-  
-}
-
 
 
 /*************** PSEUDOCODE *************/
