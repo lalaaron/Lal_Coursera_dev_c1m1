@@ -23,7 +23,7 @@
 
 /* Add Your Declarations and Function Comments here */
 
-void print_statistics(char * ptr, int count);
+void print_statistics(char * ptrA, int count, char * ptrB);
 
 /**
  * @brief print_array prints all elements of the array to terminal

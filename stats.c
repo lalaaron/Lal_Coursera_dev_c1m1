@@ -38,22 +38,25 @@ void main() {
 
   /* Other Variable Declarations Go Here */
   unsigned char sorted[SIZE];
-  float hist[4];
-  float median;
-  float mean;
-  int max;
-  int min;
+  //float hist[4];
+  //float median;
+  //float mean;
+  //int max;
+  //int min;
   
   /* Statistics and Printing Functions Go Here */
-  printf("test");
+  sort_array(test, SIZE, sorted);  
+  printf("Test data ");
   print_array(test, SIZE);
-  sort_array(test, SIZE, sorted);
+  printf("Sorted data ");
+  print_array(sorted, SIZE);
+  print_statistics(test, SIZE, sorted);
   
   /* Testing for sorting algorithm */
   //printf("test");
   //print_array(test, SIZE);
-  printf("sorted");
-  print_array(sorted, SIZE);
+  //printf("sorted");
+  //print_array(sorted, SIZE);
   
   /* Testing reverse sort */
   //reverse(test, SIZE, sorted);
@@ -61,22 +64,37 @@ void main() {
   //print_array(sorted, SIZE);
   
   /* Median & Mean function testing */
-  median = find_median(sorted, SIZE);
-  printf("median = %f\n", median);
-  mean = find_mean(test, SIZE);
-  printf("mean = %f\n", mean);
+  //median = find_median(sorted, SIZE);
+  //printf("median = %f\n", median);
+  //mean = find_mean(test, SIZE);
+  //printf("mean = %f\n", mean);
   
   /* Max & Min testing */
-  min = find_minimum(sorted, SIZE);
-  max = find_maximum(sorted, SIZE);
-  printf("Minumum = %d\nMaximum = %d\n", min, max);
+  //min = find_minimum(sorted, SIZE);
+  //max = find_maximum(sorted, SIZE);
+  //printf("Minumum = %d\nMaximum = %d\n", min, max);
   
 }
 
 /* Add other Implementation File Code Here */
 
-void print_statistics(char * ptr, int count)
+void print_statistics(char * ptrA, int count, char * ptrB)
 {
+  float med; float mean;
+  int max; int min;
+  
+  /* Calculate median */
+  med = find_median(ptrB, count);
+  /* Calculate mean */
+  mean = find_mean(ptrA, count);
+  /* Calculate maximum */
+  max = find_maximum(ptrA, count);
+  /* Calculate minimum */
+  min = find_minimum(ptrA, count);
+  
+  /* Print summary */
+  printf("Median = %f\nMean = %f\nMaximum = %d\nMinimum = %d\n", med, mean, max, min);
+  
   
 }
 
