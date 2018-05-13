@@ -55,9 +55,16 @@ void main() {
   printf("sorted");
   print_array(sorted, SIZE);
   
-  /* Median function testing */
+  /* Testing reverse sort */
+  //reverse(test, SIZE, sorted);
+  //printf("reversed");
+  //print_array(sorted, SIZE);
+  
+  /* Median & Mean function testing */
   median = find_median(sorted, SIZE);
   printf("median = %f\n", median);
+  mean = find_mean(test, SIZE);
+  printf("mean = %f\n", mean);
   
   /* Max & Min testing */
   min = find_minimum(sorted, SIZE);
@@ -85,7 +92,7 @@ void print_array(unsigned char * ptr, int count)
   printf("]\n");
 }
 
-double find_median(unsigned char * ptr, int count)
+float find_median(unsigned char * ptr, int count)
 {
   double a;
   double b;
@@ -106,9 +113,18 @@ double find_median(unsigned char * ptr, int count)
   }
 }
 
-int find_mean(unsigned char * ptr, int count)
+float find_mean(unsigned char * ptr, int count)
 {
-  return 0;
+  float total;
+  //float mean;
+  int i;
+  for(i = 0; i < count; i++)
+  {
+    total += *ptr;
+    ptr++;
+  }
+  //mean = total/count;
+  return total/count;
 }
 
 int find_maximum(unsigned char * ptr, int count)
@@ -155,6 +171,7 @@ void split(unsigned char * ptrB, int istart, int iend, unsigned char * ptrA)
   split(ptrA, imiddle, iend, ptrB);
 
   merge(ptrB, istart, imiddle, iend, ptrA);
+  //reverse(ptrB, iend);
   
 }
 
@@ -186,6 +203,23 @@ void merge(unsigned char * ptrA, int istart, int imiddle, int iend, unsigned cha
       j = j + 1;
     }
   }
+}
+
+void reverse(unsigned char * ptrA, int count)
+{
+  unsigned char swap[count];
+  unsigned char * ptrC;
+  int i;
+  
+  copy_array(ptrA, count, ptrC);
+  ptrC = ptrC + count - 1;
+  for(i = 0; i < count; i++)
+  {
+    *ptrA = *ptrC;
+    ptrA++;
+    ptrC--;
+  }
+  
 }
 
 
