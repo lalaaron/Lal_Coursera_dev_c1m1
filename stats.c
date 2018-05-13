@@ -37,22 +37,33 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  //unsigned char swap[SIZE];
   unsigned char sorted[SIZE];
+  float hist[4];
   float median;
+  float mean;
+  int max;
+  int min;
+  
   /* Statistics and Printing Functions Go Here */
   printf("test");
   print_array(test, SIZE);
   sort_array(test, SIZE, sorted);
-  printf("test");
-  print_array(test, SIZE);
+  
+  /* Testing for sorting algorithm */
+  //printf("test");
+  //print_array(test, SIZE);
   printf("sorted");
   print_array(sorted, SIZE);
+  
+  /* Median function testing */
   median = find_median(sorted, SIZE);
   printf("median = %f\n", median);
-  /* testing functions*/
-  //printf("test\n");
-
+  
+  /* Max & Min testing */
+  min = find_minimum(sorted, SIZE);
+  max = find_maximum(sorted, SIZE);
+  printf("Minumum = %d\nMaximum = %d\n", min, max);
+  
 }
 
 /* Add other Implementation File Code Here */
@@ -78,19 +89,19 @@ double find_median(unsigned char * ptr, int count)
 {
   double a;
   double b;
-  //return count%2;
+  
   ptr = ptr + ((count-1)/2);
-  if(count%2 == 1)
+  /* Check if element count is odd */
+  if(count%2 == 1)	//return middle element if odd
   {
     return *ptr;
   }
-  else
+  else	//return average of 2 middle elements if even
   {
-    //ptr = ptr + ((count-1)/2);
     a = *ptr;
     ptr++;
     b = *ptr;
-    printf("midL = %f, midR = %f\n", a, b);	//test output
+    //printf("midL = %f, midR = %f\n", a, b);	//test output
     return (a + b)/2;
   }
 }
@@ -102,12 +113,13 @@ int find_mean(unsigned char * ptr, int count)
 
 int find_maximum(unsigned char * ptr, int count)
 {
-  return 0;
+  ptr = ptr + count - 1;
+  return *ptr;
 }
 
 int find_minimum(unsigned char * ptr, int count)
 {
-  return 0;
+  return *ptr;
 }
 
 void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB)
