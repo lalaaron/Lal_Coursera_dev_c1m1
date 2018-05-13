@@ -37,12 +37,12 @@ void print_statistics(char * ptr, int count);
  */
 void print_array(unsigned char * ptr, int count);
 
-int find_median(unsigned char * ptr, int count);
+double find_median(unsigned char * ptr, int count);
 int find_mean(unsigned char * ptr, int count);
 int find_maximum(unsigned char * ptr, int count);
 int find_minimum(unsigned char * ptr, int count);
 
-void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB);
+void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB, unsigned char * ptrC);
 void copy_array(unsigned char * ptrA, int count, unsigned char * ptrB);
 void split(unsigned char * ptrB, int istart, int iend, unsigned char * ptrA);
 void merge(unsigned char * ptrA, int istart, int imiddle, int iend, unsigned char * ptrB);

@@ -37,13 +37,19 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
+  unsigned char swap[SIZE];
   unsigned char sorted[SIZE];
+  float median;
   /* Statistics and Printing Functions Go Here */
-  sort_array(test, SIZE, sorted);
+  printf("test");
+  print_array(test, SIZE);
+  sort_array(test, SIZE, sorted, swap);
   printf("test");
   print_array(test, SIZE);
   printf("sorted");
   print_array(sorted, SIZE);
+  median = find_median(sorted, SIZE);
+  printf("median = %f\n", median);
   /* testing functions*/
   //printf("test\n");
 
@@ -68,9 +74,25 @@ void print_array(unsigned char * ptr, int count)
   printf("]\n");
 }
 
-int find_median(unsigned char * ptr, int count)
+double find_median(unsigned char * ptr, int count)
 {
-  return 0;
+  double a;
+  double b;
+  //return count%2;
+  ptr = ptr + ((count-1)/2);
+  if(count%2 == 1)
+  {
+    return *ptr;
+  }
+  else
+  {
+    //ptr = ptr + ((count-1)/2);
+    a = *ptr;
+    ptr++;
+    b = *ptr;
+    printf("midL = %f, midR = %f\n", a, b);	//test output
+    return (a + b)/2;
+  }
 }
 
 int find_mean(unsigned char * ptr, int count)
@@ -88,13 +110,14 @@ int find_minimum(unsigned char * ptr, int count)
   return 0;
 }
 
-void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB)
+void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB, unsigned char * ptrC)
 {
   //unsigned char scratch[count];
   //unsigned char * ptrB = &scratch;
 
   copy_array(ptrA, count, ptrB);
-  split(ptrA, 0, count, ptrB);
+  copy_array(ptrA, count, ptrC);
+  split(ptrC, 0, count, ptrB);
 
   //return scratch;
 
