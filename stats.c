@@ -37,13 +37,13 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
-  unsigned char swap[SIZE];
+  //unsigned char swap[SIZE];
   unsigned char sorted[SIZE];
   float median;
   /* Statistics and Printing Functions Go Here */
   printf("test");
   print_array(test, SIZE);
-  sort_array(test, SIZE, sorted, swap);
+  sort_array(test, SIZE, sorted);
   printf("test");
   print_array(test, SIZE);
   printf("sorted");
@@ -110,17 +110,14 @@ int find_minimum(unsigned char * ptr, int count)
   return 0;
 }
 
-void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB, unsigned char * ptrC)
+void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB)
 {
-  //unsigned char scratch[count];
-  //unsigned char * ptrB = &scratch;
+  unsigned char swap[count];
+  unsigned char * ptrC = swap;
 
   copy_array(ptrA, count, ptrB);
   copy_array(ptrA, count, ptrC);
   split(ptrC, 0, count, ptrB);
-
-  //return scratch;
-
 }
 
 void copy_array(unsigned char * ptrA, int count, unsigned char * ptrB)
