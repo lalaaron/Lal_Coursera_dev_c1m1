@@ -9,13 +9,14 @@
  *
  *****************************************************************************/
 /**
- * @file <Add File Name> 
- * @brief <Add Brief Description Here >
+ * @file stat.c
+ * @brief Analysis of basic stats on an array of values
  *
- * <Add Extended Description Here>
+ * Prints an data set with its median, mean maximum and minimum values.
+ * Sorts dataset from smallest to largest value
  *
- * @author <Add FirsName LastName>
- * @date <Add date >
+ * @author Aaron Lal
+ * @date Editted 10/06/2018
  *
  */
 
@@ -36,8 +37,44 @@ void main() {
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
   /* Other Variable Declarations Go Here */
+  unsigned char sorted[SIZE];  // sorted dataset
   /* Statistics and Printing Functions Go Here */
 
 }
 
 /* Add other Implementation File Code Here */
+
+void print_statistics(unsigned char * ptr, int count)
+{
+
+}
+
+void print_array(unsigned char * ptr, int count)
+{
+
+}
+ 
+float find_median(unsigned char * ptr, int count)
+{
+
+}
+ 
+float find_mean(unsigned char * ptr, int count)
+{
+
+}
+ 
+int find_maximum(unsigned char * ptr, int count)
+{
+
+}
+ 
+int find_minimum(unsigned char * ptr, int count)
+{
+
+}
+
+void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB)
+{
+
+}
