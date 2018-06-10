@@ -25,12 +25,12 @@ void print_statistics(unsigned char * ptrA, int count, unsigned char * ptrB);
 /**
  * @brief A function that prints the statistics of an array including minimum, maximum, mean, and median.
  *
- * <Add Extended Description Here>
+ * Calls the following fuctions with unsorted data array: find_mean(), find_maximum() and find_minimum(),
+ * find_median() must be called with sorted data array.
  *
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
- * @param <Add InputName> <add description here>
+ * @param * ptrA is a character pointer to array of unsorted test data
+ * @param count is an interger variable for array size
+ * @param * prtB is a character pointer to sorted data array
  *
  * @return void
  */
