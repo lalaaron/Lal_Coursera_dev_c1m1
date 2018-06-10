@@ -68,13 +68,14 @@ void print_statistics(unsigned char * ptrA, int count, unsigned char * ptrB)
   /* Print summary */
   printf("Median = %f\nMean = %f\nMaximum = %d\nMinimum = %d\n", med, mean, max, min);
   
-  
 }
 
 void print_array(unsigned char * ptr, int count)
 {
   int i;
   printf("[");
+  
+  /* Cycle through and print array elements */ 
   for(i=0; i<count; i++){
     printf("%d", *ptr);
     if(i < count-1){printf(", ");}
@@ -108,6 +109,8 @@ float find_mean(unsigned char * ptr, int count)
 {
   float total;
   int i;
+  
+  /* Get sum of values */
   for(i = 0; i < count; i++)
   {
     total += *ptr;
@@ -121,45 +124,46 @@ int find_maximum(unsigned char * ptr, int count)
   /* Max from unsorted array */
   int max = *ptr;
   int i;
+  
   for(i = 0; i < count; i++)
   {
     if(*ptr > max){max = *ptr;}
     ptr++;
   }
   return max;
-  /* Max from sorted array */
-  /*ptr = ptr + count - 1;
-  return *ptr;*/
 }
 
 int find_minimum(unsigned char * ptr, int count)
 {
-  /* Max from unsorted array */
+  /* Min from unsorted array */
   int min = *ptr;
   int i;
+  
   for(i = 0; i < count; i++)
   {
     if(*ptr < min){min = *ptr;}
     ptr++;
   }
   return min;
-  /* Min from sorted array */
-  /*return *ptr;*/
 }
 
 void sort_array(unsigned char * ptrA, int count, unsigned char * ptrB)
 {
+  /* Create swap array */
   unsigned char swap[count];
   unsigned char * ptrC = swap;
-
+  
+  /* Copy test data into sorted array and swap array */
   copy_array(ptrA, count, ptrB);
   copy_array(ptrA, count, ptrC);
+  /* Call recursive merge-sort function */
   split(ptrC, 0, count, ptrB);
 }
 
 void copy_array(unsigned char * ptrA, int count, unsigned char * ptrB)
 {
   int i;
+  
   for(i = 0; i < count; i++)
   {
     *ptrB = *ptrA;
@@ -172,10 +176,11 @@ void split(unsigned char * ptrC, int istart, int iend, unsigned char * ptrB)
 {
   int imiddle;
   
+  /* Base case */
   if(iend - istart < 2){return;}
   
+  /* Split and merge */
   imiddle = (iend + istart) / 2;
-  
   split(ptrB, istart, imiddle, ptrC);
   split(ptrB, imiddle, iend, ptrC);
 
@@ -199,6 +204,7 @@ void merge(unsigned char * ptrC, int istart, int imiddle, int iend, unsigned cha
     ptr_i = ptrC + i;
     ptr_j = ptrC + j;
     ptr_k = ptrB + k;
+    
     // If left run head exists and is >= existing right run head.
     if (i < imiddle && (j >= iend || *ptr_i >= *ptr_j))
     {
